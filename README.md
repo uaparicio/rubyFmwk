@@ -14,7 +14,8 @@ Run `bundle exec cucumber -p regression` to run the tests with the regression pr
 | Param | Options | Default |
 | ----------- | ----------- | ----------- |
 | env | staging \| production | staging|
-| browser | chrome \| firefox \| safari \| edge \| bs | chrome |
+| browser | chrome \| firefox \| safari \| edge | chrome |
+| platform | local \| bs | local |
 
 *Note: If you want to run the tests against Browserstack you should get the following values from your browserstack account and run:*
 - `export BS_LOCAL_FOLDER_URL=<yourBSLocalFolderUrl>`
