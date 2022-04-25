@@ -1,9 +1,7 @@
-prod: ENV=production
-staging: ENV=staging
+prod: env=production
+staging: env=staging
 
-reporter: --format pretty --format html --out ./report/report.html
+html: --format pretty --format html --out ./report/report.html
 
-regression: -p reporter -t '@regression' -p chrome
-smoke:  -p reporter -t '@smoke' -p chrome
-
-chrome: BROWSER=chrome
+regression: -p html -t '@regression'
+smoke:  -p html -t '@smoke'
