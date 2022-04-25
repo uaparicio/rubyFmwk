@@ -1,6 +1,5 @@
 class GooglePage
-    include PageObject
-
+    
     def initialize(driver)
         @driver = driver
     end
