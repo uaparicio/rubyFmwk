@@ -1,8 +1,12 @@
 require "selenium-webdriver"
 require 'yaml'    
 
+
+$PROJECT_PATH = File.expand_path('../..', __dir__)
+
 ENV['env'] ||= 'staging'
-project_root = File.expand_path('../../..', __FILE__)
-$BASE_URL = YAML.load_file(project_root + "/config/config.yml")[ENV['env']][:url]
+$BASE_URL = YAML.load_file($PROJECT_PATH + "/config/config.yml")[ENV['env']][:url]
 
 $BROWSER = ENV['browser'] ||= 'chrome'
+
+$PLATFORM = ENV['platform'] ||= 'local'

@@ -1,12 +1,14 @@
+require 'yaml'    
+
 class BrowserStack
+    attr_accessor :capName
   
-    @@capabilities = Selenium::WebDriver::Remote::Capabilities.new
+    @@build_name = Time.now.strftime("%Y%m%dT%H%M")
     @@bs_url = "#{ENV['BS_LOCAL_FOLDER_URL'].split('.')[0]}:#{ENV['BS_ACCESS_KEY']}@hub-cloud.browserstack.com/wd/hub"
     @@remoteDriver
 
-    def initialize
-        load_caps()
-        @@capabilities['javascriptEnabled'] = 'true'
+    def initialize(capName, scenarioName)
+        load_caps(capName, scenarioName)
         @@remoteDriver = Selenium::WebDriver.for(:remote,
             :url => @@bs_url,
             :capabilities => @@capabilities)    
@@ -16,13 +18,17 @@ class BrowserStack
         return @@remoteDriver
     end
 
-    def load_caps
-        @@capabilities["os"] = "OS X"
-        @@capabilities['browser'] = 'chrome'
-        @@capabilities['browser_version'] = 'latest'
-        @@capabilities['os'] = 'Windows'
-        @@capabilities['os_version'] = '10'
-        @@capabilities['name'] = 'scenario'
-        @@capabilities['build'] = 'browserstack-build-15'
+    def load_caps(capName, scenarioName)
+        caps = YAML.load_file("#{$PROJECT_PATH}/config/capabilities.yml")['capabilities'][capName]
+        raise "#{capName} is not a defined capability" if caps.nil?
+
+        @@capabilities = Selenium::WebDriver::Remote::Capabilities.new
+        @@capabilities['javascriptEnabled'] = 'true'
+        @@capabilities['os'] = caps['os']
+        @@capabilities['os_version'] = caps['os_version']
+        @@capabilities['browser'] = caps['browser']
+        @@capabilities['browser_version'] = caps['browser_version']
+        @@capabilities['name'] = scenarioName
+        @@capabilities['build'] = capName + "_" + @@build_name
     end
 end
