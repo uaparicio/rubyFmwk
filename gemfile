@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'cucumber', '~> 7.1'
+gem 'selenium-webdriver', '~> 4.1'
+gem 'rspec-expectations', '~> 3.11'
+gem 'page-object', '~> 2.3', '>= 2.3.1'
