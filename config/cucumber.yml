@@ -1,1 +1,2 @@
-all: --format AllureCucumber::CucumberFormatter
+allure: --format AllureCucumber::CucumberFormatter -t '@smoke'
+html: --format pretty --format html --out report.html -t '@smoke'
