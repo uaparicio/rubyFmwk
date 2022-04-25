@@ -2,6 +2,8 @@ Before do
     case $BROWSER
     when 'firefox'
         @driver = Selenium::WebDriver.for :firefox
+    when 'safari'
+        @driver = Selenium::WebDriver.for :safari
     else
         @driver = Selenium::WebDriver.for :chrome
     end
