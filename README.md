@@ -14,4 +14,4 @@ Optional parameters:
 | Param | Options | Default |
 | ----------- | ----------- | ----------- |
 | ENV | staging \| production | staging|
-| BROWSER | chrome \| firefox \| safari | chrome|
+| BROWSER | chrome \| firefox \| safari \| edge | chrome|

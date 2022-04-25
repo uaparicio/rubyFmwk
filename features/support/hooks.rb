@@ -4,6 +4,8 @@ Before do
         @driver = Selenium::WebDriver.for :firefox
     when 'safari'
         @driver = Selenium::WebDriver.for :safari
+    when 'edge'
+        @driver = Selenium::WebDriver.for :edge
     else
         @driver = Selenium::WebDriver.for :chrome
     end
