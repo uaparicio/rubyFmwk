@@ -1,12 +1,13 @@
 Feature: Google
 
-@smoke
+@smoke @regression
 Scenario: Searching for a single word in google
       Given I go to google
       When I search for "execution"
       Then the results are correct
 
-Scenario: Scenario that should not run
+@regression
+Scenario: Scenario that fails
       Given I go to google
-      When I search for "it is not tagged as @smoke"
+      When I search for "@@@"
       Then the results are correct

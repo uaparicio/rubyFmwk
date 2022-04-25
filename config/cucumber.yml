@@ -1,2 +1,3 @@
-allure: --format AllureCucumber::CucumberFormatter -t '@smoke'
-html: --format pretty --format html --out report.html -t '@smoke'
+reporter: --format pretty --format html --out ./report/report.html
+regression: -p reporter -t '@regression'
+smoke:  -p reporter -t '@smoke'

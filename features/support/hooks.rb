@@ -3,6 +3,14 @@ Before do
     google_page = GooglePage.new(@driver)
 end
 
-After do
+After do |scenario|
+    if scenario.failed?
+        @driver.save_screenshot('./report/screenshot.png')
+        attach("./report/screenshot.png", "image/png")
+    end
     @driver.close
+end
+
+AfterAll do 
+    # system("open -a 'google chrome' ./report/report.html")
 end

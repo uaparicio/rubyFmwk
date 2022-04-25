@@ -8,8 +8,5 @@ In order to make it work:
 4. run `bundler install`
 
 Running the tests:
-run `bundle exec cucumber -p all` to run the tests
+run `bundle exec cucumber -p regression` to run the tests with the regression profile (check in `cucumber.yml`)
 
-Build the report:
-1. install [Allure reports](https://docs.qameta.io/allure/#_get_started)
-2. Run `allure serve ./report/allure-results/`
