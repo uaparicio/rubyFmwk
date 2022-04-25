@@ -1,6 +1,10 @@
 Before do
-    @driver = Selenium::WebDriver.for :chrome
-    google_page = GooglePage.new(@driver)
+    case $BROWSER
+    when 'firefox'
+        @driver = Selenium::WebDriver.for :firefox
+    else
+        @driver = Selenium::WebDriver.for :chrome
+    end
 end
 
 After do |scenario|

@@ -1,11 +1,12 @@
 class GooglePage
+    @@url = $BASE_URL
     
     def initialize(driver)
         @driver = driver
     end
 
     def visit
-        @driver.navigate.to 'http://google.com'
+        @driver.navigate.to @@url
     end
 
     def search(term)

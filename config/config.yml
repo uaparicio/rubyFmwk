@@ -1,0 +1,5 @@
+staging:
+    :url: https://www.google.com.ar
+
+production:
+    :url: https://www.google.com

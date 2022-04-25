@@ -8,5 +8,10 @@ In order to make it work:
 4. run `bundler install`
 
 Running the tests:
-run `bundle exec cucumber -p regression` to run the tests with the regression profile (check in `cucumber.yml`)
+run `bundle exec cucumber -p regression` to run the tests with the regression profile (check in `config/cucumber.yml`)
 
+Optional parameters:
+| Param | Options | Default |
+| ----------- | ----------- | ----------- |
+| ENV | staging \| production | staging|
+| BROWSER | chrome \| firefox | chrome|

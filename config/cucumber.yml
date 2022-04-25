@@ -1,3 +1,9 @@
+prod: ENV=production
+staging: ENV=staging
+
 reporter: --format pretty --format html --out ./report/report.html
-regression: -p reporter -t '@regression'
-smoke:  -p reporter -t '@smoke'
+
+regression: -p reporter -t '@regression' -p chrome
+smoke:  -p reporter -t '@smoke' -p chrome
+
+chrome: BROWSER=chrome
